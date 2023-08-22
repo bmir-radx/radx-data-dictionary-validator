@@ -29,6 +29,6 @@ public record LabelNotPresentResult(CsvRow csvRow) implements ValidationResult {
     @Nonnull
     @Override
     public String message() {
-        return "";
+        return "While not strictly required, it is strongly recommended that a label is present";
     }
 }

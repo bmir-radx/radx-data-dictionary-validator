@@ -12,7 +12,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Arrays;
+import java.util.Set;
 import java.util.concurrent.Callable;
+import java.util.stream.Collectors;
 
 /**
  * Matthew Horridge
@@ -35,6 +38,15 @@ public class ValidateCommand implements Callable<Integer> {
 
     @Option(names = "--format", description = "The report output format", defaultValue = "TSV", showDefaultValue = CommandLine.Help.Visibility.ALWAYS)
     protected ValidationReportFormat format = ValidationReportFormat.TSV;
+
+    @Option(names = "--levels", description = "A list of validation levels to output")
+    protected Set<ValidationLevel> levels = getValidationLevels();
+
+    private static Set<ValidationLevel> getValidationLevels() {
+        return Arrays.stream(ValidationLevel.values()).collect(Collectors.toSet());
+    }
+
+    ;
 
     public ValidateCommand(Validator validator, ValidationReportWriter reportWriter) {
         this.validator = validator;
@@ -76,7 +88,7 @@ public class ValidateCommand implements Callable<Integer> {
     private void processFile(Path pth, OutputStream out) throws IOException {
         var csv = parseCsv(pth);
         var report = validator.validateDataDictionary(csv);
-        reportWriter.writeReport(report, pth, out, format);
+        reportWriter.writeReport(report, pth, out, format, levels);
     }
 
 

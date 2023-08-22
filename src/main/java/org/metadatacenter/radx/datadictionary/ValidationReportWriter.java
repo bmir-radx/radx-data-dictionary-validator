@@ -9,6 +9,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Matthew Horridge
@@ -27,7 +28,8 @@ public class ValidationReportWriter {
     public void writeReport(ValidationReport report,
                             Path dataDictionaryPath,
                             OutputStream outputStream,
-                            ValidationReportFormat reportFormat) throws IOException {
+                            ValidationReportFormat reportFormat,
+                            Set<ValidationLevel> levels) throws IOException {
 
         var csvFormat = getCsvFormat(reportFormat);
 
@@ -35,7 +37,7 @@ public class ValidationReportWriter {
 
         report.results()
               .stream()
-              .filter(r -> r.validationLevel().equals(ValidationLevel.ERROR)).map(r -> toCsvRecord(dataDictionaryPath, r))
+              .filter(r -> levels.contains(r.validationLevel())).map(r -> toCsvRecord(dataDictionaryPath, r))
               .forEach(r -> {
                   try {
                       resultWriter.printRecord(r);
