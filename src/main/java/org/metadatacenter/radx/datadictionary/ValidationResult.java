@@ -12,4 +12,8 @@ public interface ValidationResult {
     String message();
 
     CsvRow csvRow();
+
+    default int getRowNumber() {
+        return csvRow().rowIndex() + 1;
+    }
 }

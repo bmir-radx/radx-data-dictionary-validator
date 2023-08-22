@@ -3,6 +3,7 @@ package org.metadatacenter.radx.datadictionary;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.Consumer;
 
 /**
@@ -73,6 +74,10 @@ public class Validator {
 
         missingValueCodesValidatorComponent.validate(csv, consumer);
 
+        var comparator = Comparator.comparing(ValidationResult::getRowNumber)
+                          .thenComparing(ValidationResult::validationLevel)
+                          .thenComparing(ValidationResult::message);
+        messages.sort(comparator);
         return new ValidationReport(csv, messages);
     }
 

@@ -50,9 +50,9 @@
             <version>1.10.0</version>
         </dependency>
         <dependency>
-            <groupId>net.sourceforge.owlapi</groupId>
-            <artifactId>owlapi-api</artifactId>
-            <version>5.5.0</version>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli-spring-boot-starter</artifactId>
+            <version>4.7.4</version>
         </dependency>
     </dependencies>
 

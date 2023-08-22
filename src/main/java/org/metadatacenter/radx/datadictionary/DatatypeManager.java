@@ -1,9 +1,7 @@
 package org.metadatacenter.radx.datadictionary;
 
 import jakarta.annotation.Nonnull;
-import org.semanticweb.owlapi.vocab.OWL2Datatype;
 
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
