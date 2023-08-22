@@ -39,7 +39,7 @@ public class ValidateCommand implements Callable<Integer> {
     @Option(names = "--format", description = "The report output format", defaultValue = "TSV", showDefaultValue = CommandLine.Help.Visibility.ALWAYS)
     protected ValidationReportFormat format = ValidationReportFormat.TSV;
 
-    @Option(names = "--levels", description = "A list of validation levels to output")
+    @Option(names = "--levels", description = "A list of validation levels to output", showDefaultValue = CommandLine.Help.Visibility.ALWAYS)
     protected Set<ValidationLevel> levels = getValidationLevels();
 
     private static Set<ValidationLevel> getValidationLevels() {
