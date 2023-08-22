@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.metadatacenter.radx</groupId>
     <artifactId>radx-data-dictionary-validator</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.9.0</version>
     <name>radx-data-dictionary-validator</name>
     <description>radx-data-dictionary-validator</description>
     <properties>
