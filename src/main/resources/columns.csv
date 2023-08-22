@@ -1,0 +1,9 @@
+Id,required
+Label,required
+Meaning,optional
+Required,optional
+Datatype,required
+Pattern,optional
+Units,optional
+Enumeration,optional
+Notes,optional
