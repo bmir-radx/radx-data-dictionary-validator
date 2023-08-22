@@ -30,7 +30,7 @@ public class ValidateCommand implements Callable<Integer> {
 
     private final ValidationReportWriter reportWriter;
 
-    @Option(names = "--in", description = "A path to a data dictionary file or a directory that directly or indirectly contains data dictionary files")
+    @Option(names = "--in", required = true, description = "A path to a data dictionary file or a directory that directly or indirectly contains data dictionary files")
     protected Path in;
 
     @Option(names = "--out", description = "A path to an output file where a validation report will be written.  This is optional.  If it is not provided then the report will be written to stdout.")
