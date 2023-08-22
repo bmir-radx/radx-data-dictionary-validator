@@ -2,8 +2,12 @@ package org.metadatacenter.radx.datadictionary;
 
 import jakarta.annotation.Nonnull;
 
-public record IdContainsWhiteSpaceResult(CsvRow csvRow,
-                                         String id) implements ValidationResult {
+/**
+ * Matthew Horridge
+ * Stanford Center for Biomedical Informatics Research
+ * 2023-08-18
+ */
+public record LabelNotPresentResult(CsvRow csvRow) implements ValidationResult {
 
     @Override
     public ValidationLevel validationLevel() {
@@ -13,13 +17,13 @@ public record IdContainsWhiteSpaceResult(CsvRow csvRow,
     @Nonnull
     @Override
     public String name() {
-        return "Id contains white space";
+        return "Label not present";
     }
 
     @Nonnull
     @Override
     public String subject() {
-        return id;
+        return "";
     }
 
     @Nonnull

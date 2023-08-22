@@ -23,12 +23,12 @@ public class IdFieldValidatorComponent implements ValidatorComponent {
 
     private static void checkIdOnRow(Csv csv, Consumer<ValidationResult> handler, CsvRow row, int idIndex) {
         if (idIndex >= row.size()) {
-            handler.accept(new MissingIdResult(row));
+            handler.accept(new IdNotPresentResult(row));
             return;
         }
         var id = row.get(idIndex);
         if(id.isBlank()) {
-            handler.accept(new MissingIdResult(row));
+            handler.accept(new IdNotPresentResult(row));
         }
         else {
             if(id.startsWith(" ")) {

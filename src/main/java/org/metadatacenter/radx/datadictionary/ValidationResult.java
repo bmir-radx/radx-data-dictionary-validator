@@ -1,5 +1,7 @@
 package org.metadatacenter.radx.datadictionary;
 
+import jakarta.annotation.Nonnull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -9,7 +11,14 @@ public interface ValidationResult {
 
     ValidationLevel validationLevel();
 
+    @Nonnull
     String message();
+
+    @Nonnull
+    String name();
+
+    @Nonnull
+    String subject();
 
     CsvRow csvRow();
 

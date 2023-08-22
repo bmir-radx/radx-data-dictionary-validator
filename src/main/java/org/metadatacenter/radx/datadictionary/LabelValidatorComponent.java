@@ -22,11 +22,11 @@ public class LabelValidatorComponent implements ValidatorComponent {
             if (labelIndex < row.size()) {
                 var label = row.get(labelIndex);
                 if (label.isBlank()) {
-                    handler.accept(new MissingLabelResult(row));
+                    handler.accept(new LabelNotPresentResult(row));
                 }
             }
             else {
-                handler.accept(new MissingLabelResult(row));
+                handler.accept(new LabelNotPresentResult(row));
             }
         }
     }

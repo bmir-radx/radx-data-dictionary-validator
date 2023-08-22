@@ -1,9 +1,7 @@
 package org.metadatacenter.radx.datadictionary;
 
-import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.function.Consumer;
 
@@ -28,8 +26,8 @@ public class RequiredHeadersValidatorComponent implements HeaderValidatorCompone
             if (!csvHeaders.contains(desc.name())) {
                 // Required but missing
                 if(desc.valueStatus().equals(ValueStatus.REQUIRED)) {
-                    resultHandler.accept(MissingRequiredHeaderResult.get(csv.headerRow(),
-                                                                         desc.name()));
+                    resultHandler.accept(RequiredFieldNotPresentResult.get(csv.headerRow(),
+                                                                           desc.name()));
                 }
             }
         }

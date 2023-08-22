@@ -1,5 +1,7 @@
 package org.metadatacenter.radx.datadictionary;
 
+import jakarta.annotation.Nonnull;
+
 /**
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
@@ -12,9 +14,22 @@ public record InvalidCardinalityResult(CsvRow csvRow, String value) implements V
         return ValidationLevel.ERROR;
     }
 
+    @Nonnull
     @Override
     public String message() {
-        return "Invalid cardinality value: " + value + ".  Expected either 'single' or 'multiple'.";
+        return "Expected either 'single' or 'multiple'";
+
     }
 
+    @Nonnull
+    @Override
+    public String name() {
+        return "Invalid cardinality value";
+    }
+
+    @Nonnull
+    @Override
+    public String subject() {
+        return value;
+    }
 }

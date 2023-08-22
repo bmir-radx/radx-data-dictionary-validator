@@ -1,5 +1,7 @@
 package org.metadatacenter.radx.datadictionary;
 
+import jakarta.annotation.Nonnull;
+
 public record MalformedPatternResult(CsvRow csvRow,
                                      String pattern,
                                      String errorMessage,
@@ -10,8 +12,21 @@ public record MalformedPatternResult(CsvRow csvRow,
         return ValidationLevel.ERROR;
     }
 
+    @Nonnull
     @Override
     public String message() {
-        return "Malformed regular expression pattern: " + errorMessage + " at " + errorPosition;
+        return errorMessage + " at index " + errorPosition;
+    }
+
+    @Nonnull
+    @Override
+    public String name() {
+        return "Malformed pattern";
+    }
+
+    @Nonnull
+    @Override
+    public String subject() {
+        return pattern;
     }
 }

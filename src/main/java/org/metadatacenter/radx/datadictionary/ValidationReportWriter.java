@@ -21,7 +21,7 @@ public class ValidationReportWriter {
     public void writeReportHeader(OutputStream outputStream, ValidationReportFormat reportFormat) throws IOException {
         var csvFormat = getCsvFormat(reportFormat);
         var resultWriter = new CSVPrinter(new PrintStream(outputStream, true, StandardCharsets.UTF_8), csvFormat);
-        resultWriter.printRecord("Directory", "File", "Row Number", "Level", "Problem");
+        resultWriter.printRecord("Directory", "File", "Row Number", "Level", "Problem", "Message", "Value");
     }
 
     public void writeReport(ValidationReport report,
@@ -54,8 +54,7 @@ public class ValidationReportWriter {
         var rowIndex = r.csvRow().rowIndex();
         var rowNumber = rowIndex + 1;
         var validationLevel = r.validationLevel().name();
-        var message = r.message();
-        return List.of(phs, fileName, rowNumber, validationLevel, message);
+        return List.of(phs, fileName, rowNumber, validationLevel, r.name(), r.message(), r.subject());
     }
 
     private CSVFormat getCsvFormat(ValidationReportFormat reportFormat) {

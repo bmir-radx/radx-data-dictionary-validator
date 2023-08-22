@@ -2,7 +2,7 @@ package org.metadatacenter.radx.datadictionary;
 
 import jakarta.annotation.Nonnull;
 
-public record UnknownDatatypeNameResult(CsvRow csvRow, String datatypeName, String suggestedName) implements ValidationResult {
+public record IdNotPresentResult(CsvRow csvRow) implements ValidationResult {
 
     @Override
     public ValidationLevel validationLevel() {
@@ -12,18 +12,18 @@ public record UnknownDatatypeNameResult(CsvRow csvRow, String datatypeName, Stri
     @Nonnull
     @Override
     public String message() {
-        return datatypeName + " is not an XML Schema Datatype name.  Did you mean " + suggestedName + "?";
+        return "Missing Id";
     }
 
     @Nonnull
     @Override
     public String name() {
-        return "Unknown datatype name";
+        return "Id not present";
     }
 
     @Nonnull
     @Override
     public String subject() {
-        return datatypeName;
+        return "";
     }
 }

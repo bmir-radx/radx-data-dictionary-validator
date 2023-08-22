@@ -2,9 +2,7 @@ package org.metadatacenter.radx.datadictionary;
 
 import jakarta.annotation.Nonnull;
 
-public record MalformedEnumerationErrorResult(CsvRow csvRow,
-                                              String enumeration,
-                                              String parseMessage) implements ValidationResult {
+public record DatatypeNotPresentResult(CsvRow csvRow) implements ValidationResult {
 
     @Override
     public ValidationLevel validationLevel() {
@@ -14,18 +12,18 @@ public record MalformedEnumerationErrorResult(CsvRow csvRow,
     @Nonnull
     @Override
     public String name() {
-        return "Malformed enumeration";
+        return "Datatype name not present";
     }
 
     @Nonnull
     @Override
     public String subject() {
-        return enumeration;
+        return "";
     }
 
     @Nonnull
     @Override
     public String message() {
-        return parseMessage;
+        return "Blank values for datatype names are not allowed";
     }
 }

@@ -31,15 +31,16 @@ public class DatatypeValidatorComponent implements ValidatorComponent {
 
     private void checkIdOnRow(CsvRow row, Consumer<ValidationResult> handler, int dataTypeFieldIndex) {
         if (dataTypeFieldIndex >= row.size()) {
-            handler.accept(new MissingDatatypeResult(row));
+            handler.accept(new DatatypeNotPresentResult(row));
             return;
         }
         var datatypeName = row.get(dataTypeFieldIndex);
         if(datatypeName.isBlank()) {
-            handler.accept(new MissingDatatypeResult(row));
+            handler.accept(new DatatypeNotPresentResult(row));
         }
         else if(!datatypeManager.isValidDatatypeName(datatypeName)) {
-            handler.accept(new UnknownDatatypeNameResult(row, datatypeName));
+            var suggestedName = datatypeManager.getSuggestedName(datatypeName);
+            handler.accept(new UnknownDatatypeNameResult(row, datatypeName, suggestedName));
         }
         DatatypeFactory df;
 

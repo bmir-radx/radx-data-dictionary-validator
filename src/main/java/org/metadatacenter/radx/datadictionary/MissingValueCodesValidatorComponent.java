@@ -30,9 +30,9 @@ public class MissingValueCodesValidatorComponent implements ValidatorComponent {
                             new EnumerationParser(new StringReader(value))
                                     .Enumeration();
                         } catch (ParseException e) {
-                            handler.accept(new MalformedMissingValueCodesResult(row, JavaCcUtil.getParseExceptionMessage(e)));
+                            handler.accept(new MalformedMissingValueCodesResult(row, value, JavaCcUtil.getParseExceptionMessage(e)));
                         } catch (TokenMgrError e) {
-                            handler.accept(new MalformedMissingValueCodesResult(row, JavaCcUtil.getTokenManagerErrorMessage(e)));
+                            handler.accept(new MalformedMissingValueCodesResult(row, value, JavaCcUtil.getTokenManagerErrorMessage(e)));
                         }
                     }
                 });
