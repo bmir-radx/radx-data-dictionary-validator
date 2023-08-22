@@ -1,6 +1,6 @@
 package org.metadatacenter.radx.datadictionary;
 
-public record InvalidDatatypeNameResult(CsvRow csvRow, String datatypeName) implements ValidationResult {
+public record UnknownDatatypeNameResult(CsvRow csvRow, String datatypeName) implements ValidationResult {
 
     @Override
     public ValidationLevel validationLevel() {
@@ -9,6 +9,6 @@ public record InvalidDatatypeNameResult(CsvRow csvRow, String datatypeName) impl
 
     @Override
     public String message() {
-        return "Invalid datatype name: " + datatypeName;
+        return "Unknown datatype name: " + datatypeName;
     }
 }

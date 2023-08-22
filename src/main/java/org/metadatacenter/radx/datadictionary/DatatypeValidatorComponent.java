@@ -39,7 +39,7 @@ public class DatatypeValidatorComponent implements ValidatorComponent {
             handler.accept(new MissingDatatypeResult(row));
         }
         else if(!datatypeManager.isValidDatatypeName(datatypeName)) {
-            handler.accept(new InvalidDatatypeNameResult(row, datatypeName));
+            handler.accept(new UnknownDatatypeNameResult(row, datatypeName));
         }
         DatatypeFactory df;
 
