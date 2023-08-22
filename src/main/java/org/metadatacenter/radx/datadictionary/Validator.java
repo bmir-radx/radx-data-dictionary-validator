@@ -30,6 +30,8 @@ public class Validator {
 
     private final MissingValueCodesValidatorComponent missingValueCodesValidatorComponent;
 
+    private final SeeAlsoValidatorComponent seeAlsoValidatorComponent;
+
     public Validator(RequiredHeadersValidatorComponent headersValidatorComponent,
                      IdFieldValidatorComponent idFieldValidatorComponent,
                      DatatypeValidatorComponent datatypeValidatorComponent,
@@ -37,7 +39,8 @@ public class Validator {
                      EnumerationValidatorComponent enumerationValidatorComponent,
                      PatternValidatorComponent patternValidatorComponent,
                      CardinalityValidatorComponent cardinalityValidatorComponent,
-                     MissingValueCodesValidatorComponent missingValueCodesValidatorComponent) {
+                     MissingValueCodesValidatorComponent missingValueCodesValidatorComponent,
+                     SeeAlsoValidatorComponent seeAlsoValidatorComponent) {
         this.headersValidatorComponent = headersValidatorComponent;
         this.idFieldValidatorComponent = idFieldValidatorComponent;
         this.datatypeValidatorComponent = datatypeValidatorComponent;
@@ -46,6 +49,7 @@ public class Validator {
         this.patternValidatorComponent = patternValidatorComponent;
         this.cardinalityValidatorComponent = cardinalityValidatorComponent;
         this.missingValueCodesValidatorComponent = missingValueCodesValidatorComponent;
+        this.seeAlsoValidatorComponent = seeAlsoValidatorComponent;
     }
 
     public ValidationReport validateDataDictionary(Csv csv) {
@@ -72,7 +76,11 @@ public class Validator {
         // Validate enumerations
         enumerationValidatorComponent.validate(csv, consumer);
 
+        seeAlsoValidatorComponent.validate(csv, consumer);
+
         missingValueCodesValidatorComponent.validate(csv, consumer);
+
+
 
         var comparator = Comparator.comparing(ValidationResult::getRowNumber)
                           .thenComparing(ValidationResult::validationLevel)

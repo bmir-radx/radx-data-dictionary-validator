@@ -21,7 +21,9 @@ public enum FieldName {
 
     CARDINALITY("Cardinality"),
 
-    MISSING_VALUE_CODES("MissingValueCodes");
+    MISSING_VALUE_CODES("MissingValueCodes"),
+
+    SEE_ALSO("SeeAlso");
 
     private final String headerValue;
 
