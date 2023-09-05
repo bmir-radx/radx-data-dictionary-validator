@@ -22,7 +22,7 @@ public class ValidationReportWriter {
     public void writeReportHeader(OutputStream outputStream, ValidationReportFormat reportFormat) throws IOException {
         var csvFormat = getCsvFormat(reportFormat);
         var resultWriter = new CSVPrinter(new PrintStream(outputStream, true, StandardCharsets.UTF_8), csvFormat);
-        resultWriter.printRecord("Directory", "File", "Row Number", "Level", "Problem", "Message", "Value");
+        resultWriter.printRecord("Directory", "File", "Row", "Level", "Problem", "Message", "Value");
     }
 
     public void writeReport(ValidationReport report,
