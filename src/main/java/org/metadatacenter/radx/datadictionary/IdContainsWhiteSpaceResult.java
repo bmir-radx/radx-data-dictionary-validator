@@ -7,7 +7,7 @@ public record IdContainsWhiteSpaceResult(CsvRow csvRow,
 
     @Override
     public ValidationLevel validationLevel() {
-        return ValidationLevel.WARNING;
+        return ValidationLevel.INFO;
     }
 
     @Nonnull
