@@ -10,6 +10,9 @@ import java.util.function.Consumer;
  * Matthew Horridge
  * Stanford Center for Biomedical Informatics Research
  * 2023-01-31
+ * <p/>
+ * The Validator class is responsible for validating data dictionaries in CSV format.
+ * The validation results are collected in a {@link ValidationReport}.
  */
 @Component
 public class Validator {
@@ -52,6 +55,12 @@ public class Validator {
         this.seeAlsoValidatorComponent = seeAlsoValidatorComponent;
     }
 
+    /**
+     * Validates the provided CSV data dictionary.
+     *
+     * @param csv The CSV data dictionary to be validated.
+     * @return A {@link ValidationReport} containing the results of the validation.
+     */
     public ValidationReport validateDataDictionary(Csv csv) {
         var messages = new ArrayList<ValidationResult>();
         Consumer<ValidationResult> consumer = messages::add;
