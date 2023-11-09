@@ -36,25 +36,6 @@ public class RadxDataDictionaryValidatorApplication implements CommandLineRunner
         SpringApplication.run(RadxDataDictionaryValidatorApplication.class, args);
     }
 
-    @Bean
-    DataDictionarySpec dataDictionarySpec(ObjectMapper mapper) {
-        try {
-            var csvMapper = new CsvMapper();
-            var inputStream = RadxDataDictionaryValidatorApplication.class.getResourceAsStream("/columns.csv");
-            MappingIterator<DataDictionaryColumnDescriptor> iterator = csvMapper.readerWithSchemaFor(DataDictionaryColumnDescriptor.class)
-                                                                                .readValues(inputStream);
-            var rows = iterator.readAll();
-            return new DataDictionarySpec(rows);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Bean
-    DatatypeManager datatypeManager(DatatypeManagerFactory datatypeManagerFactory) {
-        return datatypeManagerFactory.get();
-    }
-
     @Override
     public void run(String... args) {
         var validateCommand = applicationContext.getBean(ValidateCommand.class);
