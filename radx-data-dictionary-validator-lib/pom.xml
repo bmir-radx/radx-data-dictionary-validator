@@ -12,7 +12,7 @@
 
     <groupId>edu.stanford.bmir.radx</groupId>
     <artifactId>radx-data-dictionary-validator-lib</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1-SNAPSHOT</version>
     <name>radx-data-dictionary-validator-lib</name>
     <description>radx-data-dictionary-validator-lib</description>
 
