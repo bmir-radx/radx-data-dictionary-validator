@@ -1,12 +1,12 @@
-# radx-data-dictionary-validator
+# RADx Data Dictionary Validator
 
 A validator for radx data dictionaries.
 
-# Installation 
+## Installation 
 
 To install download [ddv.zip](https://github.com/bmir-radx/radx-data-dictionary-validator/releases/download/v1.1.0/ddv.zip) and then unzip.  Move the extracted `ddv` tool to into a location on your executable path.  
 
-# Examples
+### Examples
 
 To use, type `ddv --help` for a list of options.
 
@@ -26,7 +26,7 @@ or you can specify the `--out` option, for example,
 
 `ddv --in mydictionary.csv --format CSV --out myreport.csv`
 
-# Programmatic Use
+## Programmatic Use
 
 The data dictionary validator library is compatible with Spring Boot. To use in your app add the following Maven dependency.
 
