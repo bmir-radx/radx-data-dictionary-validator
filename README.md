@@ -34,7 +34,7 @@ The data dictionary validator library is compatible with Spring Boot. To use in 
 <dependency>
             <groupId>edu.stanford.bmir.radx</groupId>
             <artifactId>radx-data-dictionary-validator-lib</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
 </dependency>
 ```
 
