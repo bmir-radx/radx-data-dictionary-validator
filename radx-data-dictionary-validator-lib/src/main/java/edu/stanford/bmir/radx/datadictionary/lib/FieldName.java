@@ -13,6 +13,8 @@ public enum FieldName {
 
     DESCRIPTION("Description"),
 
+    SECTION("Section"),
+
     DATATYPE("Datatype"),
 
     PATTERN("Pattern"),
@@ -23,7 +25,15 @@ public enum FieldName {
 
     MISSING_VALUE_CODES("MissingValueCodes"),
 
-    SEE_ALSO("SeeAlso");
+    PROVENANCE("Provenance"),
+
+    SEE_ALSO("SeeAlso"),
+
+    TERMS("Terms"),
+
+    UNIT("Unit"),
+
+    NOTES("Notes");
 
     private final String headerValue;
 
