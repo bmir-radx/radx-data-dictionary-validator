@@ -51,11 +51,10 @@ public class ValidationReportWriter {
 
     private static List<? extends Serializable> toCsvRecord(Path pth, ValidationResult r) {
         var fileName = pth.getFileName().toString();
-        var phs = pth.getParent().getFileName().toString();
         var rowIndex = r.csvRow().rowIndex();
         var rowNumber = rowIndex + 1;
         var validationLevel = r.validationLevel().name();
-        return List.of(phs, fileName, rowNumber, validationLevel, r.name(), r.message(), r.subject());
+        return List.of(fileName, rowNumber, validationLevel, r.name(), r.message(), r.subject());
     }
 
     private CSVFormat getCsvFormat(ValidationReportFormat reportFormat) {
