@@ -6,7 +6,7 @@
     <parent>
         <groupId>edu.stanford.bmir.radx</groupId>
         <artifactId>radx-data-dictionary-validator</artifactId>
-        <version>1.3.2</version> <!-- Inherited from parent -->
+        <version>1.3.3</version> <!-- Inherited from parent -->
         <relativePath>../pom.xml</relativePath> <!-- Path to parent POM -->
     </parent>
 
