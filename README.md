@@ -4,7 +4,7 @@ A validator for radx data dictionaries.
 
 ## Installation 
 
-To install download [ddv.zip](https://github.com/bmir-radx/radx-data-dictionary-validator/releases/download/v1.2.0/ddv.zip) and then unzip.  Move the extracted `ddv` tool to into a location on your executable path.  
+To install download [ddv.zip](https://github.com/bmir-radx/radx-data-dictionary-validator/releases/download/v1.3.4/ddv.zip) and then unzip.  Move the extracted `ddv` tool to into a location on your executable path.  
 
 ### Examples
 
